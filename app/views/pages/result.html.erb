@@ -1,0 +1,22 @@
+<h1>Google Module Results</h1>
+<ul>
+  <li>Google website   : <%= @google_site %></li>
+  <li>Search term      : <%= @search_term %></li>
+  <li>Number of result : <%= @nb_result %></li>
+  <li>Proxy            : <%= @proxy %></li>
+</ul>
+
+<%= link_to 'Retour', :root %>
+<br /><br />
+
+<% index = 0 %>
+<% while index < @nb_result.to_i and @result[index][0] != nil %>
+  <b><%= @result[index][0].dump %></b><br />
+  <i><a href="http://<%= @result[index][2] %>"><%= @result[index][1].dump %></a></i><br />
+  <br /><br />
+  <% index += 1 %>
+<% end %>
+
+
+<br /><br />
+<%= link_to 'Retour', :root %>

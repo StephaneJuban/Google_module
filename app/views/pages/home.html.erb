@@ -1,0 +1,32 @@
+<h1>Google Module Example</h1>
+<p>This is an example of the Google Module to get a list of titles and URL from a Google Search</p>
+<p>Every parameters are optional... By default the module will search the first 10 results of 'Hello World' on www.google.com without proxy.</p>
+
+<%=form_for :pages, url: url_for( :controller => :pages, :action => :result ) do |f| %>
+
+  <div class="field">
+    <%= f.label :google_site %><br />
+    <%= f.text_field :google_site %>
+  </div>
+
+  <div class="field">
+    <%= f.label :search_term %><br />
+    <%= f.text_field :search_term %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :nb_result %><br />
+    <%= f.number_field(:nb_result, in: 1..100000, step: 1) %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :proxy %><br />
+    <%= f.text_field :proxy %>
+  </div>
+  
+  <br />
+
+  <div class="actions">
+    <%= f.submit "Search !" %>
+
+<% end %>
